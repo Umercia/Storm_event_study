@@ -7,7 +7,7 @@ date: "August 14, 2016"
 
 ## Synopsis
 
-In this little study we will try to answer the two questions:
+In this study we will try to answer two questions:
 
 * Which types of meteo events are most harmful to population health in America?
 * Which types of meteo events cause the most damage (in $) in America?
@@ -167,4 +167,4 @@ Somehow, this approach combines damaging potential and frequency (in the data ba
             labs(title = "Most damaging events in America", x="event names", y = "Total over 10 years [Billion $]",fill = "Type")
 ```
 
-In total, Floods seems to be, by far the most costly meteo events in America over those 10 years. It should be noted the special traitement of flood event cost estimates as described in the the "Storm data preparation" document. The flood does not have the "no information available" and a number should _always_ be provided.
+In total, flood seems to be, by far, the most costly meteo events in America over those 10 years. It should be noted the special traitement of flood event cost estimates as described in the the "Storm data preparation" document. The flood does not have the "no information available" and a number should _always_ be provided.

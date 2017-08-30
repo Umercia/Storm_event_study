@@ -17,7 +17,7 @@ Storms and other severe weather events can cause both public health and economic
 
 This project involves exploring the U.S. National Oceanic and Atmospheric Administration's (NOAA) storm database. This database tracks characteristics of major storms and weather events in the United States, including when and where they occur, as well as estimates of any fatalities, injuries, and property damage.
 
-Extra documentation about this data base can be found on those links:
+Extra documentation about this database can be found on those links:
 
 * [Data](https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2)
 * [Storm data preparation - code book](https://d396qusza40orc.cloudfront.net/repdata%2Fpeer2_doc%2Fpd01016005curr.pdf)
@@ -40,13 +40,13 @@ Basic data processing has been done: It mainly consists of subsetting data, hand
 
 ```  
  
-Data collection is much more complete in the last decade. We will choose to work with the 10 last years of this data set (2001-11-15 --> 2011-11-15).
+Data collection is much more complete in the last decade. We will choose to work with the last 10 years of this data set (2001-11-15 --> 2011-11-15).
   
   
 On top of the period we will also select the columns that are relevant for this study:
  
 * "EVTYPE": event names
-* "FATALITIES" & "INJURIES": respectively numbers of fatalities and injuries
+* "FATALITIES" & "INJURIES": respectively number of fatalities and injuries
 * "PRODDMG" & "PRODDMGEXP": Property damage estimates in US Dollars [$]
 * "CROPDMG" & "CROPDMGEXP": Crop damage estimates in US Dollars [$]
 
@@ -62,7 +62,7 @@ On top of the period we will also select the columns that are relevant for this 
       
       # White space is trimmed, all text is converted to uppercase
             storms_db$EVTYPE <- toupper(storms_db$EVTYPE)  # change all the text to upper case
-            storms_db$EVTYPE <- trimws(storms_db$EVTYPE)   # remove white space befor abd after the text
+            storms_db$EVTYPE <- trimws(storms_db$EVTYPE)   # remove white spacea beforw and after the text
       
       # Cases of 0$ damages: set the *DMGEXP columns to 0 also avoid to NA after
             selection <- events_db$CROPDMG == 0
@@ -101,8 +101,8 @@ On top of the period we will also select the columns that are relevant for this 
 
 ## Results
 ### Most Harmful meteo events
-We will define the "most harmfull" by simply counting the numbers of fatalities for each events over those 10 years.
-Somehow, this approach combines dangerousity and frequency (in the data base) of each event. For information, we will also add
+We will define the "most harmful" by simply counting the numbers of fatalities for each events over those 10 years.
+Somehow, this approach combines dangerousity and frequency (in the database) of each event. For information, we will also add
 the number of injuries.
 
 ```{r most_harmful_events, echoes = TRUE, warning = FALSE}
@@ -136,12 +136,12 @@ the number of injuries.
             labs(title = "Most harmful events in America", x="event names", y = "Total over 10 years [log10 scale]")
 ```
 
-The most harmfull events in America is Tornado with a little bit more than 1000 fatalities over 10 years.
+The most harmful events in America is Tornado with a little bit more than 1000 fatalities over 10 years.
 
 
 ### Most damaging meteo events
-We will define the "most damaging" by computing the _total_ damage cost (properties + crops) for each events over those 10 years.
-Somehow, this approach combines damaging potential and frequency (in the data base) of each event. 
+We will define the "most damaging" by computing the _total_ damage cost (properties + crops) for each event over those 10 years.
+Somehow, this approach combines damaging potential and frequency (in the database) of each event. 
 ```{r most_damaging_events}
       
       # selection of the 10 most damaging events--------------------------------------------
@@ -167,4 +167,4 @@ Somehow, this approach combines damaging potential and frequency (in the data ba
             labs(title = "Most damaging events in America", x="event names", y = "Total over 10 years [Billion $]",fill = "Type")
 ```
 
-In total, flood seems to be, by far, the most costly meteo events in America over those 10 years. It should be noted the special traitement of flood event cost estimates as described in the the "Storm data preparation" document. The flood does not have the "no information available" and a number should _always_ be provided.
+In total, flood seems to be, by far, the most costly meteo events in America over those 10 years. It should be noted the special treatment of flood event cost estimates as described in the "Storm data preparation" document. The flood does not have the "no information available" and a number should _always_ be provided.

@@ -209,7 +209,7 @@ $(document).ready(function () {
 <h2>Results</h2>
 <div id="most-harmful-meteo-events" class="section level3">
 <h3>Most Harmful meteo events</h3>
-<p>We will define the “most harmful” by simply counting the numbers of fatalities for each events over those 10 years. Somehow, this approach combines dangerousity and frequency (in the data base) of each event. For information, we will also add the number of injuries.</p>
+<p>We will define the “most harmful” by simply counting the numbers of fatalities for each events over those 10 years. Somehow, this approach combines dangerousity and frequency (in the database) of each event. For information, we will also add the number of injuries.</p>
 <pre class="r"><code>     library(ggplot2)
             
       # selection of the 10 most important events for injuries and fatalities --------------
@@ -242,7 +242,7 @@ $(document).ready(function () {
 </div>
 <div id="most-damaging-meteo-events" class="section level3">
 <h3>Most damaging meteo events</h3>
-<p>We will define the “most damaging” by computing the <em>total</em> damage cost (properties + crops) for each event over those 10 years. Somehow, this approach combines damaging potential and frequency (in the data base) of each event.</p>
+<p>We will define the “most damaging” by computing the <em>total</em> damage cost (properties + crops) for each event over those 10 years. Somehow, this approach combines damaging potential and frequency (in the database) of each event.</p>
 <pre class="r"><code>      # selection of the 10 most damaging events--------------------------------------------
       T10_dmg &lt;- head(events_sum[order(-events_sum$TOTDMG),],10)
       
